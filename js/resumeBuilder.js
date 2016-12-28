@@ -4,7 +4,6 @@ This is empty on purpose! Your code to build the resume will go here.
  /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-inName(name);
 var bio=
 {
 	"name":"Kannan T",
@@ -22,6 +21,7 @@ var bio=
  	"biopic": "https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14072_794059800631445_7072515640796208267_n.jpg?oh=bf5c0c09511af96cad1a2eb0e27b1a46&oe=58CB6528",
  	"skills":["Who knows","Will add soon"],
 };
+inName(bio.name);
 bio.display=function()
 {
 	var formattedname=HTMLheaderName.replace("%data%",bio.name);
