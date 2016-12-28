@@ -10,8 +10,8 @@ var bio=
  	"role":"Front-End Developer" ,
  	"contacts":
  	{
- 		"mobileno": 09600936102,
-	 	"emailid": "kannant92@yahoo.in",
+ 		"mobile": 09600936102,
+	 	"email": "kannant92@yahoo.in",
 	 	"twitter":"kannankannu",
 	 	"blog":"Techiefellows",
 	 	"github":"kannan007",
@@ -26,8 +26,8 @@ bio.display=function()
 {
 	var formattedname=HTMLheaderName.replace("%data%",bio.name);
 	var formattedrole=HTMLheaderRole.replace("%data%",bio.role);
-	var formattedmobile=HTMLmobile.replace("%data%",bio.contacts.mobileno);
-	var formattedemailid=HTMLemail.replace("%data%",bio.contacts.emailid);
+	var formattedmobile=HTMLmobile.replace("%data%",bio.contacts.mobile);
+	var formattedemailid=HTMLemail.replace("%data%",bio.contacts.email);
 	var formattedtwitter=HTMLtwitter.replace("%data%",bio.contacts.twitter);
 	var formattedblog=HTMLblog.replace("%data%",bio.contacts.blog);
 	var formattedgithub=HTMLgithub.replace("%data%",bio.contacts.github);
@@ -55,6 +55,60 @@ bio.display=function()
 	}
 }
 bio.display();
+var education=
+{
+ 	"schools":
+ 	[
+ 		{
+ 			"name": "VIT",
+ 			"degree": "MCA",
+ 			"dates": "July 2012 - May 2015",
+ 			"location": "Vellore",
+ 			"major": ["Software Testing","Open source Programming"]
+ 		},
+ 		{
+ 			"name": "VIT",
+ 			"degree": "BCA",
+ 			"dates": "July 2009 - May 2012",
+ 			"location": "Vellore",
+ 			"major": ["C","C++"]
+ 		}
+ 	],
+ 	"onlineCourses":
+ 	[
+ 		{
+ 			"title":"Front-End Developer NanoDegree",
+ 			"school": "Udacity",
+ 			"dates": "Dec 2016 - June 2017",
+ 			"url": "www.udacity.com"
+ 		}
+ 	]
+}
+education.display=function()
+{
+ 	$("#education").append(HTMLschoolStart);
+	for(var items=0;items<education.schools.length;items++)
+	{
+		var formattedschoolname=HTMLschoolName.replace("%data%",education.schools[items].name);
+		var formattedsschooldegree=HTMLschoolDegree.replace("%data%",education.schools[items].degree);
+		var formattedschooldates=HTMLschoolDates.replace("%data%",education.schools[items].dates);
+		var formattedschoolocation=HTMLschoolLocation.replace("%data%",education.schools[items].location);
+		var formattedschoolmajor=HTMLschoolMajor.replace("%data%",education.schools[items].major);
+		$(".education-entry").append(formattedschoolname + formattedsschooldegree + formattedschooldates + formattedschoolocation + formattedschoolmajor);
+	}
+	$("#education").append(HTMLonlineClasses);
+	$("#education").append(HTMLschoolStart);
+	for(var items=0;items<education.onlineCourses.length;items++)
+	{
+		var formattedonlinetitle=HTMLonlineTitle.replace("%data%",education.onlineCourses[items].title);
+		var formattedonlineschool=HTMLonlineSchool.replace("%data%",education.onlineCourses[items].school);
+		var formattedonlinedates=HTMLonlineDates.replace("%data%",education.onlineCourses[items].dates);
+		var formattedonlineurl=HTMLonlineURL.replace("%data%",education.onlineCourses[items].url);
+		var assignclass=formattedonlinetitle + formattedonlineschool + formattedonlinedates + formattedonlineurl;
+		$(".education-entry:last").append(assignclass);
+	}
+}
+education.display();
 var work=
 {
  	"jobs":
@@ -82,61 +136,7 @@ work.display=function()
 	 	$(".work-entry:last").append(formattedfull + formattedworkdates + formattedworklocation + formatteddescription);
 	}
 }
- var education=
- {
- 	"college":
- 	[
- 		{
- 			"name": "VIT",
- 			"degree": "MCA",
- 			"dates": "July 2012 - May 2015",
- 			"location": "Vellore",
- 			"major": ["Software Testing","Open source Programming"]
- 		},
- 		{
- 			"name": "VIT",
- 			"degree": "BCA",
- 			"dates": "July 2009 - May 2012",
- 			"location": "Vellore",
- 			"major": ["C","C++"]
- 		}
- 	],
- 	"onlineCourses":
- 	[
- 		{
- 			"title":"Front-End Developer NanoDegree",
- 			"school": "Udacity",
- 			"dates": "Dec 2016 - June 2017",
- 			"url": "www.udacity.com"
- 		}
- 	]
- }
- education.display=function()
- {
- 	$("#education").append(HTMLschoolStart);
-	for(var items=0;items<education.college.length;items++)
-	{
-		var formattedschoolname=HTMLschoolName.replace("%data%",education.college[items].name);
-		var formattedsschooldegree=HTMLschoolDegree.replace("%data%",education.college[items].degree);
-		var formattedschooldates=HTMLschoolDates.replace("%data%",education.college[items].dates);
-		var formattedschoolocation=HTMLschoolLocation.replace("%data%",education.college[items].location);
-		var formattedschoolmajor=HTMLschoolMajor.replace("%data%",education.college[items].major);
-		$(".education-entry").append(formattedschoolname + formattedsschooldegree + formattedschooldates + formattedschoolocation + formattedschoolmajor);
-	}
-	$("#education").append(HTMLonlineClasses);
-	$("#education").append(HTMLschoolStart);
-	for(var items=0;items<education.onlineCourses.length;items++)
-	{
-		var formattedonlinetitle=HTMLonlineTitle.replace("%data%",education.onlineCourses[items].title);
-		var formattedonlineschool=HTMLonlineSchool.replace("%data%",education.onlineCourses[items].school);
-		var formattedonlinedates=HTMLonlineDates.replace("%data%",education.onlineCourses[items].dates);
-		var formattedonlineurl=HTMLonlineURL.replace("%data%",education.onlineCourses[items].url);
-		var assignclass=formattedonlinetitle + formattedonlineschool + formattedonlinedates + formattedonlineurl;
-		$(".education-entry:last").append(assignclass);
-	}
- }
- education.display();
- var projects=
+var projects=
  {
  	"project":
  	[
